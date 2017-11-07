@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for i in $(ls *.tar.gz);
+do
+  gzcat $i | tar xf -
+  DIR=${i%.tar.gz}
+  /export/share/EIS/sun/tools/explominer/explominer.x86 -f $DIR -m -a -c -e /export/share/EIS/sun/patch/etc/ -o ./
+done
